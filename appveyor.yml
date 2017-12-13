@@ -1,0 +1,22 @@
+# What Python version is installed where:
+# http://www.appveyor.com/docs/installed-software#python
+environment:
+  matrix:
+    - PYTHON: "C:\\Python27-x64"
+    - PYTHON: "C:\\Python33"
+    - PYTHON: "C:\\Python33-x64"
+    - PYTHON: "C:\\Python34"
+    - PYTHON: "C:\\Python34-x64"
+    - PYTHON: "C:\\Python35"
+    - PYTHON: "C:\\Python35-x64"
+    - PYTHON: "C:\\Python36"
+
+install:
+  - "SET PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - "python scripts\\ci\\install"
+
+build: off
+
+test_script:
+  - "python scripts\\ci\\run-tests"
+
