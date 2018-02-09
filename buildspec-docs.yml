@@ -1,0 +1,17 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pip install -r requirements.txt
+      - pip install -r requirements-docs.txt
+  build:
+    commands:
+      - cd docs
+      - make html
+      - cd ..
+
+artifacts:
+  files:
+    - docs/build/html/*
+  discard-paths: yes
