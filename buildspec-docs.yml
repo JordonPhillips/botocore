@@ -13,4 +13,5 @@ phases:
 
 artifacts:
   files:
-    - docs/build/html/**/*
+    - '**/*'
+  base-directory: docs/build/html
