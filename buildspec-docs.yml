@@ -13,4 +13,4 @@ phases:
 
 artifacts:
   files:
-    - docs/build/html/*
+    - docs/build/html/**/*
