@@ -19,3 +19,7 @@ phases:
       - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/latest/ --acl public-read
       - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/$(python setup.py --version)/ --acl public-read
 
+artifacts:
+  files:
+    - '**/*'
+  base_directory: docs/build/html/
