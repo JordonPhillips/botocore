@@ -17,4 +17,5 @@ phases:
   post_build:
     commands:
       - aws s3 cp --recursive docs/source/html/ s3://${DOCS_BUCKET}/latest/
+      - aws s3 cp --recursive docs/source/html/ s3://${DOCS_BUCKET}/$(python setup.py --version)/
 
