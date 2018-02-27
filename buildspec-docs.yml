@@ -16,6 +16,6 @@ phases:
       - cd ..
   post_build:
     commands:
-      - aws s3 cp --recursive docs/build/html/ s3://${DOCS_BUCKET}/latest/
-      - aws s3 cp --recursive docs/build/html/ s3://${DOCS_BUCKET}/$(python setup.py --version)/
+      - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/latest/ --public-read
+      - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/$(python setup.py --version)/ --public-read
 
