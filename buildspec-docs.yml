@@ -1,5 +1,9 @@
 version: 0.2
 
+env:
+  parameter-store:
+    DOCS_BUCKET: DOCS_BUCKET
+
 phases:
   install:
     commands:
@@ -10,8 +14,7 @@ phases:
       - cd docs
       - make html
       - cd ..
+  post_build:
+    commands:
+      - aws s3 cp --recursive docs/source/html/ s3://$DOCS_BUCKET/latest/
 
-artifacts:
-  files:
-    - '**/*'
-  base-directory: docs/build/html
