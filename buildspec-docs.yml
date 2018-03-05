@@ -16,6 +16,8 @@ phases:
       - cd ..
   post_build:
     commands:
+      - aws --version
+      - aws sts get-caller-identity
       - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/botocore/latest/ --acl public-read
       - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/botocore/$(python setup.py --version)/ --acl public-read
 
