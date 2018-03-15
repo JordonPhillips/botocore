@@ -9,6 +9,12 @@ phases:
     commands:
       - pip install -r requirements.txt
       - pip install -r requirements-docs.txt
+  pre_build:
+    commands:
+      - pip freeze
+      - python setup.py --version
+      - aws --version
+      - aws sts get-caller-identity
   build:
     commands:
       - cd docs
@@ -16,9 +22,6 @@ phases:
       - cd ..
   post_build:
     commands:
-      - python setup.py --version
-      - aws --version
-      - aws sts get-caller-identity
       - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/botocore/latest/ --acl public-read
       - aws s3 sync --delete docs/build/html/ s3://${DOCS_BUCKET}/botocore/$(python setup.py --version)/ --acl public-read
 
