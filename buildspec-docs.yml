@@ -11,6 +11,7 @@ phases:
       - pip install -r requirements-docs.txt
   pre_build:
     commands:
+      - cd botocore
       - pip freeze
       - python setup.py --version
       - aws --version
