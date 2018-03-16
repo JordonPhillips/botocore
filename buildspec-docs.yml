@@ -7,11 +7,11 @@ env:
 phases:
   install:
     commands:
+      - cd botocore-source
       - pip install -r requirements.txt
       - pip install -r requirements-docs.txt
   pre_build:
     commands:
-      - cd botocore
       - pip freeze
       - python setup.py --version
       - aws --version
