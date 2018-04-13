@@ -1,9 +1,5 @@
 version: 0.2
 
-env:
-  parameter-store:
-    DOCS_BUCKET: DOCS_BUCKET
-
 phases:
   install:
     commands:
