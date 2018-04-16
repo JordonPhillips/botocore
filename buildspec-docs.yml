@@ -21,6 +21,6 @@ phases:
       - cd ..
 
 artifacts:
+  base-directory: BotocoreSource/docs/build/html/
   files:
     - '**/*'
-  base_directory: BotocoreSource/docs/build/html/
